@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CourseTracker</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <header>
+    <h1>CourseTracker</h1>
+    <button id="addCourseBtn">Add course</button>
+  </header>
+
+  <section class="progress-box">
+    <div class="progress-item total-credits">
+      <p>Total Credits</p>
+      <h2 id="totalCredits">0</h2>
+    </div>
+    <div class="progress-item current-credits">
+      <p>Current Credits</p>
+      <h2 id="currentCredits">0</h2>
+    </div>
+    <div class="progress-item cgpa">
+      <p>CGPA</p>
+      <h2 id="cgpa">0.0</h2>
+    </div>
+  </section>
+
+  <nav class="filters">
+    <button class="filter-btn active" data-filter="all">All courses</button>
+    <button class="filter-btn" data-filter="ongoing">On going</button>
+    <button class="filter-btn" data-filter="completed">Completed</button>
+  </nav>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Ex, MTH 001">
+    <button id="searchBtn">Search</button>
+  </div>
+
+  <section id="coursesContainer" class="course-grid">
+    <!-- Course cards will be added here dynamically -->
+  </section>
+
+ <div id="addCourseModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h2>Add New Course</h2>
+    <form id="courseForm">
+      <input type="text" id="courseCode" placeholder="Course Code" required>
+      <input type="text" id="courseName" placeholder="Course Name" required>
+      <input type="text" id="instructor" placeholder="Instructor" required>
+      <input type="text" id="semester" placeholder="Semester (e.g., Fall 2023)" required>
+      <input type="number" id="credits" placeholder="Credits" required>
+
+      <label>Status:</label>
+      <select id="courseStatus" required>
+        <option value="">Select</option>
+        <option value="completed">Completed</option>
+        <option value="ongoing">Ongoing</option>
+      </select>
+
+      <div id="gradeSection" class="conditional hidden">
+        <label>Grade:</label>
+        <select id="grade">
+          <option value="A">A</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B">B</option>
+          <option value="B-">B-</option>
+          <option value="C+">C+</option>
+          <option value="C">C</option>
+          <option value="C-">C-</option>
+          <option value="D">D</option>
+          <option value="F">F</option>
+        </select>
+      </div>
+
+      <div id="assignmentSection" class="conditional hidden">
+        <label>Add Assignments</label>
+        <div id="assignmentsContainer"></div>
+        <button type="button" id="addAssignmentBtn">+ Add Assignment</button>
+      </div>
+
+      <button type="submit">Save Course</button>
+    </form>
+  </div>
+</div>
+
+<div id="editAssignmentsModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="closeEditModal">&times;</span>
+    <h2>Edit Assignments - <span id="editCourseCode"></span></h2>
+    <form id="editAssignmentsForm">
+      <div id="editAssignmentsContainer"></div>
+      <button type="button" id="editAddAssignmentBtn">+ Add Assignment</button>
+      
+      <div style="margin-top:20px;">
+        <label>
+          <input type="checkbox" id="markCompletedCheckbox" />
+          Mark this course as completed
+        </label>
+      </div>
+      
+      <div id="finalGradeSection" class="hidden" style="margin-top:10px;">
+        <label>Final Grade:</label>
+        <select id="finalGradeSelect">
+          <option value="A">A</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B">B</option>
+          <option value="B-">B-</option>
+          <option value="C+">C+</option>
+          <option value="C">C</option>
+          <option value="C-">C-</option>
+          <option value="D">D</option>
+          <option value="F">F</option>
+        </select>
+         <div id="numericGradeDisplay" style="margin-top:8px; font-weight:bold;"></div>
+      </div>
+
+      <button type="submit" style="margin-top:20px;">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="index.js"></script>
+
+</body>
+</html>

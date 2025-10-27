@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ddd;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+header button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #444;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.progress-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ddd;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.progress-item {
+  flex: 1;
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.total-credits {
+  background-color: #ffd6d6;
+}
+
+.current-credits {
+  background-color: #f0ffe0;
+}
+
+.cgpa {
+  background-color: #e0ffff;
+}
+
+.progress-item p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.progress-item h2 {
+  font-size: 32px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.filter-btn.active {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #d7ffff;
+  border: none;
+  cursor: pointer;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  border: 1px solid #eee;
+}
+
+.card-banner {
+  height: 8px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin: -20px -20px 15px -20px;
+}
+
+.banner-completed {
+  background-color: #00e100;
+}
+
+.banner-ongoing {
+  background-color: #ffd700;
+}
+
+.course-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.course-card .grade {
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.course-card .edit-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 14px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #eee;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.conditional.hidden {
+  display: none;
+}
+
+#addAssignmentBtn {
+  margin-top: 10px;
+  background-color: #eee;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#assignmentsContainer div {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  max-height: 80vh;    /* limit height to 80% of viewport height */
+  overflow-y: auto;    /* enable vertical scrolling when content overflows */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+#editAssignmentsContainer > div {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+#editAssignmentsContainer input {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#editAssignmentsContainer button.removeAssignmentBtn {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 34px;
+}

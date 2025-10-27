@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CourseTracker Signup</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Create Your CourseTracker Account</h2>
+    <form id="signupForm">
+      <input type="text" id="fullName" placeholder="Full Name" required />
+      <input type="text" id="university" placeholder="University" required />
+      <input type="text" id="major" placeholder="Major" required />
+      <input type="text" id="standing" placeholder="Standing (e.g. Sophomore)" required />
+      <input type="number" id="totalCredits" placeholder="Total Credits" required min="0" />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="button" id="signupBtn">Sign Up</button>
+      <p id="message" class="message"></p>
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </form>
+  </div>
+
+  <script type="module" src="./firebase.js"></script>
+  <script type="module" src="./signup.js"></script>
+</body>
+</html>
